@@ -1,0 +1,14 @@
+.content {
+	margin: 30px 2% 0px 2%;
+}
+
+.content h1 {
+	text-align: center;
+	margin: 20px 0px;
+}
+
+.map {
+	display: block;
+	width: 100%;
+	padding-left: 180px;
+}
