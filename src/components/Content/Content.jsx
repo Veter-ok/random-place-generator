@@ -2,6 +2,7 @@ import './Content.css'
 import { useState } from 'react';
 import { YMaps, Map, Placemark} from '@pbe/react-yandex-maps';
 import { getLocation } from '../../utils/getLocation';
+import Button from '../Button/button';
 
 const Content = () => {
 	const [currentlyCoord, setCurrentlyCoord] = useState([55.751574, 37.573856])
@@ -35,7 +36,7 @@ const Content = () => {
 					</Map>
 				</YMaps>
 			</div>
-			<button onClick={ShowLocation}>Показать на карте</button>
+			<Button onClick={ShowLocation} text="Показать на карте"/>
 		</div>
 	)
 }
