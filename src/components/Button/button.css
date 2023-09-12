@@ -1,0 +1,14 @@
+.basic-button {
+	background-color: rgb(69, 33, 126);
+	display: block;
+	padding: 15px 30px;
+	border: none;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.basic-button:hover {
+	box-shadow: #ba94d3 0px 3px 8px;
+}
