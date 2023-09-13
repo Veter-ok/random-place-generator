@@ -1,0 +1,14 @@
+.slider-input {
+	width: 420px;
+	margin: auto;
+}
+
+
+.slider-input input{
+	width: 75%;
+}
+
+.slider-input label{
+	margin-left: 10px;
+	width: 80px;
+}
