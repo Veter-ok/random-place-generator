@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 
 const SliderInput = (props) => {
 	return (
-		<div className='slider-input'>
+		<div className='slider-input-block'>
+			<label className='slider-input-text' htmlFor="slider-input">{props.text}</label>
 			<input 
 				type="range" 
-				id="volume" 
+				id="slider-input" 
 				name="volume" 
 				min="1000" 
 				max="10000" 
 				onChange={(e) => props.onChange(e.target.value)}
 				value={props.value}
 			/>
-			<label htmlFor="volume">{props.text}</label>
+			<label className='slider-input-value' htmlFor="slider-input">{props.value}</label>
 		</div>
 	)
 }
@@ -21,7 +22,7 @@ const SliderInput = (props) => {
 SliderInput.propTypes = {
 	text: PropTypes.string,
 	onChange: PropTypes.func,
-	value: PropTypes.string
+	value: PropTypes.number
 };
 
 

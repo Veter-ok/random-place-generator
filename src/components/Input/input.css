@@ -1,14 +1,19 @@
-.slider-input {
+.slider-input-block {
 	width: 420px;
 	margin: auto;
 }
 
 
-.slider-input input{
-	width: 75%;
+.slider-input-block input{
+	width: 62%;
 }
 
-.slider-input label{
-	margin-left: 10px;
-	width: 80px;
+.slider-input-text {
+	margin-right: 15px;
+	width: 15%;
+}
+
+.slider-input-value {
+	margin-left: 15px;
+	width: 15%;
 }
