@@ -1,5 +1,5 @@
 .content {
-	margin: 30px 2% 0px 2%;
+	padding: 30px 5% 0px 5%;
 }
 
 .content h1 {
@@ -7,8 +7,6 @@
 	margin: 20px 0px;
 }
 
-.map {
-	display: block;
+.ymap {
 	width: 100%;
-	padding-left: 180px;
 }

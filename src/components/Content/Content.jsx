@@ -1,6 +1,6 @@
 import './Content.css'
-import { useState } from 'react';
-import { YMaps, Map, Placemark, Circle} from '@pbe/react-yandex-maps';
+import { useState, useCallback } from 'react';
+import { YMaps, Map, Placemark, Circle, GeoObject} from '@pbe/react-yandex-maps';
 import { getLocation } from '../../utils/getLocation';
 import SliderInput from '../Input/Input';
 import Button from '../Button/button';
@@ -18,14 +18,17 @@ const Content = () => {
   const ShowLocation = () => {
     const crd = getLocation(navigator.geolocation.getCurrentPosition((pos) => {
 		setCurrentlyCoord([pos.coords.latitude, pos.coords.longitude])
-		
     }, (error) => {
       console.log(error)
     }, options))
     console.log(crd)
   }
-
-  console.log(radius)
+  
+  const instanceRef = useCallback((ref) => {
+    if (ref) {
+      ref.geometry.events.add('change', (e) => setCurrentlyCoord(e.get('newCoordinates')));
+    }
+  }, []);
 
 	return (
 		<div className='content'>
@@ -33,11 +36,11 @@ const Content = () => {
 			<div className='map'>
 				<YMaps>
 					<Map 
-						width={1000} 
+						width="100%"
 						height={600} 
 						defaultState={{ center: [55.75, 37.57], zoom: 10 }}
 						>
-						<Placemark geometry={currentlyCoord} />
+						<Placemark geometry={currentlyCoord} instanceRef={instanceRef} options={{draggable: true}}/>
 						<Circle
 							geometry={[currentlyCoord, Number(radius)]}
 							options={{
@@ -48,6 +51,9 @@ const Content = () => {
 								strokeWidth: 5,
 							}}
 						/>
+						<GeoObject options={{
+
+						}}/>
 					</Map>
 				</YMaps>
 			</div>
