@@ -48,7 +48,7 @@ const Content = () => {
 				<YMaps>
 					<Map 
 						width="100%"
-						height={600} 
+						height={550} 
 						defaultState={{ center: [55.75, 37.57], zoom: 13 }}
 						>
 						<Placemark geometry={coor} options={{draggable: true}}/>
