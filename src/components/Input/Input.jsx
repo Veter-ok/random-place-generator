@@ -11,6 +11,7 @@ const SliderInput = (props) => {
 				name="volume" 
 				min="1000" 
 				max="10000" 
+				step="100"
 				onChange={(e) => props.onChange(e.target.value)}
 				value={props.value}
 			/>

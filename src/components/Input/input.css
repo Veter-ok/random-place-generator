@@ -17,3 +17,20 @@
 	margin-left: 15px;
 	width: 15%;
 }
+
+
+@media screen and (max-width: 650px){
+	.slider-input-block {
+		width: 300px;
+	}
+	.slider-input-block input{
+		width: 50%;
+	}
+	.slider-input-text {
+		margin-right: 10px;
+	}
+	.slider-input-value {
+		margin-left: 10px;
+	}
+}
+
