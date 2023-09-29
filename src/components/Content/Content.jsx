@@ -43,7 +43,7 @@ const Content = () => {
 
 	return (
 		<div className='content'>
-			<h1>My awesome application with maps!</h1>
+			<h1>Rodion&apos;s application!</h1>
 			<div className='map'>
 				<YMaps>
 					<Map 
