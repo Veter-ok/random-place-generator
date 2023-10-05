@@ -4,12 +4,12 @@ export const getLocation = (callback) => {
         .query({ name: "geolocation" })
         .then(function (result) {
           if (result.state === "granted") {
-            console.log(result.state);
+            callback()
             //If granted then you can directly call your function here
           } else if (result.state === "prompt") {
             callback()
           } else if (result.state === "denied") {
-            alert("Вы заблокировали дрступ к геопозиции((")
+            alert("Вы заблокировали доступ к геопозиции((")
             //If denied then you have to show instructions to enable location
           }
           result.onchange = function () {

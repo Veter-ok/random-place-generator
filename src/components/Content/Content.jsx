@@ -27,8 +27,12 @@ const Content = () => {
   }
   
   const instanceRef = useCallback((ref) => {
-    if (ref) {
-      ref.geometry.events.add('change', (e) => setCurrentlyCoord(e.get('newCoordinates')));
+	if (ref) {
+		ref.geometry.events.add('change', (e) => {
+			const newCoord = e.get('newCoordinates')
+			setCoor(newCoord)
+			setCurrentlyCoord(newCoord)
+		});
     }
   }, []);
 
@@ -44,32 +48,30 @@ const Content = () => {
 	return (
 		<div className='content'>
 			<h1>Rodion&apos;s application!</h1>
-			<div className='map'>
-				<YMaps>
-					<Map 
-						width="100%"
-						height={550} 
-						defaultState={{ center: [55.75, 37.57], zoom: 13 }}
-						>
-						<Placemark geometry={coor} options={{draggable: true}}/>
-						<Placemark 
-							geometry={currentlyCoord} 
-							instanceRef={instanceRef}
-							options={{draggable: true, iconColor: "rgb(218, 16, 22)"}}
-						/>
-						<Circle
-							geometry={[currentlyCoord, Number(radius)]}
-							options={{
-								draggable: false,
-								fillColor: "#DB709377",
-								strokeColor: "#990066",
-								strokeOpacity: 0.8,
-								strokeWidth: 5,
-							}}
-						/>
-					</Map>
-				</YMaps>
-			</div>
+			<YMaps>
+				<Map 
+					width="100%"
+					height={530} 
+					defaultState={{ center: [55.75, 37.57], zoom: 13 }}
+					>
+					<Placemark geometry={coor} options={{draggable: false}}/>
+					<Placemark 
+						geometry={currentlyCoord} 
+						instanceRef={instanceRef}
+						options={{draggable: true, iconColor: "rgb(218, 16, 22)"}}
+					/>
+					<Circle
+						geometry={[currentlyCoord, Number(radius)]}
+						options={{
+							draggable: false,
+							fillColor: "#DB709377",
+							strokeColor: "#990066",
+							strokeOpacity: 0.8,
+							strokeWidth: 5,
+						}}
+					/>
+				</Map>
+			</YMaps>
 			<Button onClick={showLocation} text="Показать на карте"/>
 			<SliderInput text="Радиус круга" value={radius} onChange={setRadius}/>
 			<Button onClick={findNewPlace} text="Найти место"/>
