@@ -126,13 +126,8 @@ header {
 
 @media screen and (max-width: 850px){
 	.link {
-		margin: 35px 20px;
-		width: 90px;
+		margin: 35px 1px;
 	}
-	.link {
-		margin: 35px 5px;
-	}
-
 	.link a {
 		font-size: 20px;
 		padding: 15px;
@@ -146,13 +141,24 @@ header {
 	}
 }
 
-@media screen and (max-width: 650px){
+@media screen and (max-width: 750px){
+	.link {
+		margin: 35px 0px;
+		width: 100px;
+	}
+	.link a {
+		font-size: 18px;
+		padding: 10px;
+	}
+}
+
+@media screen and (max-width: 640px){
 	.links {
 		display: none;
 	}
 }
 
-@media screen and (min-width: 650px){
+@media screen and (min-width: 640px){
 	.hamburger-menu {
 		display: none;
 	}
